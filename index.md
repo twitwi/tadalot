@@ -1,6 +1,6 @@
 ---
 home: true
-NOheroImage: /hero.png
+heroImage: ./media/logo.png
 NOactionText: Get Started →
 NOactionLink: /guide/
 NOfeatures:
@@ -16,17 +16,22 @@ NOfooter: MIT Licensed | Copyright © 2018-present Evan You
 
 # TADALoT Project
 
-The TADALoT Project (Région Auvergne-Rhône-Alpes, Pack Ambition Recherche 2017).
+<p style="text-align: center">
+  <object :data="$withBase('media/banner.svg')" type="image/svg+xml"></object>
+</p>
 
-**T**adalot: **A**nomaly **D**etection by Machine Learning using **A**typical **Lo**sses and **T**ransfer-learning
+The TADALoT Project is a project funded by the following call: Pack Ambition Recherche 2017, Région Auvergne-Rhône-Alpes.
 
-*Détection d’anomalies par apprentissage automatique avec des fonctions de coût atypiques et de l’apprentissage par transfert*
+TADALoT stands for:
+- **T**adalot: **A**nomaly **D**etection by Machine Learning using **A**typical **Lo**sses and **T**ransfer-learning
+- *Détection d’anomalies par apprentissage automatique avec des fonctions de coût atypiques et de l’apprentissage par transfert*
+
 
 ## Partners
 
-LabHC: Laboratoire Hubert Curien (UJM, Université Jean Monnet)
-
-CREATIS: Centre de Recherche en Acquisition et Traitement de l’Image pour la Santé (CNRS)
+The project involves two funded academic partners:
+- LabHC: Laboratoire Hubert Curien (UJM, Université Jean Monnet)
+- CREATIS: Centre de Recherche en Acquisition et Traitement de l’Image pour la Santé (CNRS)
 
 
 

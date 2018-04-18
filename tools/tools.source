@@ -44,7 +44,7 @@ _tadalot()
 {
     local cur=${COMP_WORDS[COMP_CWORD]}
     local man=.man.tools.source
-    test $man -nt tools.source || { tadalot help-complete > $man ; }
+    test $man -nt "$THIS_FILE" || { tadalot help-complete > $man ; }
     COMPREPLY=( $(compgen -W "$(cat $man)" -- $cur) )
 }
 complete -F _tadalot tadalot
