@@ -1,0 +1,58 @@
+# TO BE SOURCE'D
+
+THIS_FILE=$(readlink -f  "${BASH_SOURCE[0]}")
+
+tadalot() {
+    case "$1" in
+        "" | help-complete | help)
+            echo "help serve build build-only source"
+            return;;
+        source)
+            tadalot echo "Reloading" "$THIS_FILE"
+            source "$THIS_FILE"
+            return;;
+        echo)
+            shift
+            echo "_-=TADALoT=-_" "$@"
+            return;;
+        serve)
+            tadalot echo "Running vuepress dev."
+            vuepress dev
+            return;;
+        build-only)
+            tadalot echo "Building vuepress project..."
+            vuepress build
+            return;;
+        build)
+            tadalot echo "Building vuepress project..."
+            vuepress build
+            if [ -d ,,gh-pages ] ; then
+                git -C ,,gh-pages pull
+            else
+                git clone git@github.com:twitwi/tadalot.git ,,gh-pages
+                git -C ,,gh-pages checkout gh-pages
+            fi
+            \cp -far .vuepress/dist/* ,,gh-pages/
+            git -C ,,gh-pages/ add .
+            git -C ,,gh-pages/ commit -m "Automatic build $(date --iso-8601=minutes)"
+            git -C ,,gh-pages/ push
+            return;;
+    esac
+}
+
+_tadalot()
+{
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    local man=.man.tools.source
+    test $man -nt tools.source || { tadalot help-complete > $man ; }
+    COMPREPLY=( $(compgen -W "$(cat $man)" -- $cur) )
+}
+complete -F _tadalot tadalot
+
+if which npm > /dev/null ; then
+    tadalot echo "Yes, npm found, supposing it's ok."
+else
+    tadalot echo "No, npm NOT found, adding node using with_node."
+    with_node
+fi
+tadalot echo "You can now use the 'tadalot' command."
