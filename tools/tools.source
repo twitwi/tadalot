@@ -2,6 +2,9 @@
 
 THIS_FILE=$(readlink -f  "${BASH_SOURCE[0]}")
 
+export NODE_OPTIONS=--openssl-legacy-provider
+vuepress=./node_modules/.bin/vuepress
+
 tadalot() {
     case "$1" in
         "" | help-complete | help)
@@ -17,15 +20,15 @@ tadalot() {
             return;;
         serve)
             tadalot echo "Running vuepress dev."
-            vuepress dev
+            $vuepress dev
             return;;
         build-only)
             tadalot echo "Building vuepress project..."
-            vuepress build
+            $vuepress build
             return;;
         build)
             tadalot echo "Building vuepress project..."
-            vuepress build
+            $vuepress build
             if [ -d ,,gh-pages ] ; then
                 git -C ,,gh-pages pull
             else

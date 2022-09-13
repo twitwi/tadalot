@@ -1,3 +1,4 @@
 .man.tools.source
 .vuepress/dist/
 ,,gh-pages
+node_modules/

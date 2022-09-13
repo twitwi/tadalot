@@ -26,6 +26,7 @@ TADALoT stands for:
 - **T**adalot: **A**nomaly **D**etection by Machine Learning using **A**typical **Lo**sses and **T**ransfer-learning
 - *Détection d’anomalies par apprentissage automatique avec des fonctions de coût atypiques et de l’apprentissage par transfert*
 
+[publications](/publications)
 
 ## Partners
 
@@ -41,3 +42,4 @@ The TADALoT project focuses on the machine learning foundations for imbalanced d
 While it is a pervasive issue in applications, settings involving imbalanced classes are generally under-studied in machine learning.
 The originality of TADALoT lies into this focus on imbalanced data in machine learning.
 More precisely, TADALoT has three main subjects of investigation: transfer learning, representation learning and optimization of atypical loss functions, all in a context of highly imbalanced data.
+
